@@ -24,8 +24,9 @@ Git/GitHubに慣れていない方は、以下の手順を参考にしてくだ�
 1. GitHubで [School-Agent-Inc/gd_antigravity](https://github.com/School-Agent-Inc/gd_antigravity) を開きます。
 2. 画面右上の **「Fork」** ボタンを押して、自分のアカウントにコピーを作成します。
 
-**以下をコピーして、GoogleAntigravityのAgentspaceに入力。**
-※ `<あなたのGitHubユーザー名>` の部分は自分のユーザー名に書き換えてください。
+**以下をコピーして、GoogleAntigravityのAgentに入力。**
+<br>※ `<あなたのGitHubユーザー名>` の部分は自分のユーザー名に書き換えてください。<br>
+<img width="284" height="150" alt="スクリーンショット 2026-01-08 22 50 52" src="https://github.com/user-attachments/assets/de9d663d-fe33-43f6-b9e0-cc1f28627945" />
 
 ```bash
 # フォークした自分のレポジトリをクローン（最初の1回だけ）
@@ -51,6 +52,7 @@ git pull origin main
 # 作業用ブランチを作成（名前はわかりやすく。例: feature/add-new-idea）
 git checkout -b feature/your-branch-name
 ```
+
 <br><br>
 ### Step 2: いろいろ作業
 アプリ作ったり<br>
@@ -58,7 +60,7 @@ git checkout -b feature/your-branch-name
 、、、、いろいろ<br>
 　<br>
 ### Step 3: アップ前のセキュリティチェック
-以下をコピーして、GoogleAntigravityのAgentspaceに貼り付けて、リクエスト前にチェックしよう。
+以下をコピーして、GoogleAntigravityのAgentに貼り付けて、リクエスト前にチェックしよう。
 
 ```bash
 作成したファイルに対して以下の内容を確認し、厳密にチェックを行なってください。
@@ -91,7 +93,7 @@ git checkout -b feature/your-branch-name
 
 1. 変更を保存して送る
 　
-以下をコピーして、GoogleAntigravityのAgentspaceに入力。
+以下をコピーして、GoogleAntigravityのAgentに入力。
 **作業用ブランチの名前だけを変更して実行。**
 
 ```bash
