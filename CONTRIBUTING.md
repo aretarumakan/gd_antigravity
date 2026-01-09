@@ -123,5 +123,5 @@ git push origin feature/your-branch-name
 迷ったら `ideas/` に入れておけばOKです！
 
 ---
-困ったことがあれば、GeminiDiveのチャットで気軽に質問してください。
+困ったことがあれば、Gemini DIVEのチャットで気軽に質問してください。
 Let's build something great together!
