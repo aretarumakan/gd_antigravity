@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>認知オンロード・ワークシート</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --accent-color: #38bdf8;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .question-box {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .answer-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .answer-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .answer-card.active {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+        }
+
+        .answer-label {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .answer-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .log-section {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid var(--glass-border);
+        }
+
+        textarea {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--glass-border);
+            border-radius: 0.5rem;
+            color: white;
+            padding: 1rem;
+            font-size: 1rem;
+            margin-top: 1rem;
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        button {
+            background: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: opacity 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .status-msg {
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            color: #4ade80;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Cognitive Onload Worksheet</h1>
+        <p style="color: var(--text-secondary)">現代文評論文：思考のOSをアップデートする</p>
+    </header>
+
+    <div class="question-box">
+        <span style="color: var(--accent-color); font-weight: bold;">Q:</span> 
+        筆者が説く『受動的な消費』と『能動的な参画』の決定的な違いとは何か？
+    </div>
+
+    <div class="comparison-grid">
+        <div class="answer-card" id="cardA" onclick="selectCard('A')">
+            <span class="answer-label">Model A: Subjective</span>
+            <div class="answer-title">身体的共感モデル</div>
+            <p>『能動的な参画』とは、例えば料理を作る時のように、素材の感触や味の変化に自分の感覚を総動員して向き合うプロセスそのものです。単に享受するのとは違い、自分の手が世界に介入しているという手応えがあるかどうかが決定的な違いです。</p>
+        </div>
+
+        <div class="answer-card" id="cardB" onclick="selectCard('B')">
+            <span class="answer-label">Model B: Structural</span>
+            <div class="answer-title">論理的システムモデル</div>
+            <p>『受動的な消費』が情報の非対称性に基づいた一方向的な享受であるのに対し、『能動的な参画』は情報の再構成を伴う双方向的な関与を指します。解釈者がコンテクストの生成に寄与する『生産的解釈層』の有無が境界線です。</p>
+        </div>
+    </div>
+
+    <div class="log-section">
+        <h3>Reflection & Dissonance Log</h3>
+        <p style="color: var(--text-secondary); font-size: 0.9rem;">
+            どちらの回答に「しっくり」きましたか？ あるいは、どちらに「違和感」を覚えましたか？ それは本文のどの記述と関連していますか？
+        </p>
+        <textarea id="reflectionBox" placeholder="ここにあなたの思考のプロセスや違和感を書き留めてください..."></textarea>
+        <button onclick="saveLog()">Save Reflection</button>
+        <div class="status-msg" id="statusMsg">Saved to local storage. Ready for sharing!</div>
+    </div>
+</div>
+
+<script>
+    function selectCard(type) {
+        document.getElementById('cardA').classList.remove('active');
+        document.getElementById('cardB').classList.remove('active');
+        document.getElementById('card' + type).classList.add('active');
+    }
+
+    function saveLog() {
+        const text = document.getElementById('reflectionBox').value;
+        const selected = document.querySelector('.answer-card.active')?.id || 'None';
+        const data = {
+            timestamp: new Date().toISOString(),
+            selectedModel: selected,
+            reflection: text
+        };
+        localStorage.setItem('onload_reflection', JSON.stringify(data));
+        
+        const msg = document.getElementById('statusMsg');
+        msg.style.display = 'block';
+        setTimeout(() => { msg.style.display = 'none'; }, 3000);
+    }
+</script>
+
+</body>
+</html>
